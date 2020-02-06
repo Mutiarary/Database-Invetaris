@@ -1,0 +1,60 @@
+CREATE TABLE jenis(
+  id_jenis VARCHAR (6) UNIQUE NOT NULL,
+  nama_jenis VARCHAR (50),
+  kode_jenis int,
+  keterangan VARCHAR (100)
+);
+
+CREATE TABLE ruang(
+  id_ruang VARCHAR (6) UNIQUE NOT NULL,
+  nama_ruang VARCHAR (50),
+  kode_ruang int,
+  keterangan VARCHAR (100)
+);
+
+CREATE TABLE inventaris(
+  id_inventaris VARCHAR (6) UNIQUE NOT NULL,
+  nama VARCHAR (50),
+  kondisi VARCHAR (50),
+  keterangan VARCHAR (100),
+  jumlah int,
+  id_jenis VARCHAR (6),
+  tanggal_register date,
+  id_ruang VARCHAR (6),
+  kode_invetaris int,
+  id_petugas VARCHAR (6)
+);
+
+CREATE TABLE petugas(
+  id_petugas VARCHAR (6) UNIQUE NOT NULL,
+  username VARCHAR (100),
+  pass VARCHAR (100),
+  nama_petugas VARCHAR (100),
+  id_level VARCHAR (6)
+);
+
+CREATE TABLE detail_pinjam(
+  id_detail_pinjam VARCHAR (6) UNIQUE NOT NULL,
+  id_inventaris VARCHAR (6),
+  jumlah int
+);
+
+CREATE TABLE tb_level(
+  id_level VARCHAR (6) UNIQUE NOT NULL,
+  nama_level VARCHAR (50)
+);
+
+CREATE TABLE peminjaman(
+  id_peminjaman VARCHAR (6) UNIQUE NOT NULL,
+  tggl_pinjam date,
+  tggl_kembali date,
+  status VARCHAR (50),
+  id_pegawai VARCHAR (6)
+);
+
+CREATE TABLE pegawai(
+  id_pegawai VARCHAR (6) UNIQUE NOT NULL,
+  nama VARCHAR (100),
+  nomor_induk int,
+  alamat VARCHAR (100)
+);
